@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/10/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/10/modelMap https://cayenne.apache.org/schema/10/modelMap.xsd"
+	 project-version="10">
+	<property name="defaultPackage" value="com.cms.entity"/>
+	<db-entity name="cms_book">
+		<db-attribute name="created_at" type="TIMESTAMP"/>
+		<db-attribute name="created_by" type="VARCHAR" length="50"/>
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="isbn" type="VARCHAR" isMandatory="true" length="50"/>
+		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="50"/>
+		<db-attribute name="updated_at" type="TIMESTAMP"/>
+		<db-attribute name="updated_by" type="VARCHAR" length="50"/>
+	</db-entity>
+	<obj-entity name="CmsBook" className="com.cms.entity.CmsBook" lock-type="optimistic" dbEntityName="cms_book">
+		<obj-attribute name="createdAt" type="java.time.LocalDateTime" db-attribute-path="created_at"/>
+		<obj-attribute name="createdBy" type="java.lang.String" db-attribute-path="created_by"/>
+		<obj-attribute name="isbn" type="java.lang.String" db-attribute-path="isbn"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="updatedAt" type="java.time.LocalDateTime" db-attribute-path="updated_at"/>
+		<obj-attribute name="updatedBy" type="java.lang.String" db-attribute-path="updated_by"/>
+		<pre-persist method-name="onPrePersist"/>
+		<pre-update method-name="onPreUpdate"/>
+	</obj-entity>
+</data-map>

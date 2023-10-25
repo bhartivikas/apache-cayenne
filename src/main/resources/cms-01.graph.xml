@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<graphs xmlns="http://cayenne.apache.org/schema/10/graph">
+	<graph type="ER" scale="1.0">
+		<entity name="cms_book" x="235.96" y="660.99" width="64.0" height="146.0"/>
+	</graph>
+</graphs>
